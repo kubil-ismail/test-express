@@ -28,7 +28,6 @@
     "node-input-validator": "^4.5.0",
     "pg": "^8.8.0",
     "sequelize": "^6.6.5",
-    "socket.io": "^4.4.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
