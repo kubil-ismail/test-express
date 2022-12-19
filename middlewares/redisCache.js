@@ -2,7 +2,11 @@ require("dotenv").config();
 const redis = require("../utils/redis");
 
 const cache = (req, res, next) => {
-  if (process.env.REDIS) {
+  if (
+    process.env.REDIS_HOST &&
+    process.env.REDIS_PORT &&
+    process.env.REDIS_PASS
+  ) {
     redis.get(req.originalUrl, (error, result) => {
       if (error) throw error;
       if (result !== null) {
@@ -10,6 +14,7 @@ const cache = (req, res, next) => {
           status: "OK",
           messages: "Cached",
           data: JSON.parse(result),
+          cache: true,
         });
       } else {
         return next();

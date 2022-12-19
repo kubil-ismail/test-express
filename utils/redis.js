@@ -1,13 +1,17 @@
 require("dotenv").config();
-
 const Redis = require("ioredis");
+
 let redis;
 
-if (process.env.REDIS) {
+if (
+  process.env.REDIS_HOST &&
+  process.env.REDIS_PORT &&
+  process.env.REDIS_PASS
+) {
   redis = new Redis({
-    host: 'redis-15140.c9.us-east-1-4.ec2.cloud.redislabs.com',
-    port: 15140,
-    password: '33u5L2WZb2zT4PFgPQZ1k9S3IeFTraQV'
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASS,
   });
 }
 
