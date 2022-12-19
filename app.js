@@ -83,7 +83,7 @@ app.use("/", indexRouter);
 app.use(function (req, res) {
   res.status(200).json({
     status: true,
-    messages: "Api running well",
+    messages: "Api running well v.1.0",
   });
 });
 
